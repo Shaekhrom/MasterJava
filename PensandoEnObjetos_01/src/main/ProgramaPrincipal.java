@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 import modelo.Jugador;
+import modelo.Partido;
 import modelo.Equipo;
 
 public class ProgramaPrincipal {
+	
+	//Creado por Alejandro Barbacil Castro
 
 	public static void main(String[] args) {
 		//declaracion de variables
@@ -17,6 +20,7 @@ public class ProgramaPrincipal {
         int opcion;
         
         ArrayList<Equipo> listaEquipos = new ArrayList<>();
+        ArrayList<Partido> listaPartidos = new ArrayList<>();
         
         ArrayList<Jugador> listaJugadores1 = new ArrayList<>();
         ArrayList<Jugador> listaJugadores2 = new ArrayList<>();
@@ -25,6 +29,11 @@ public class ProgramaPrincipal {
         Equipo equipo1 = null;
         Equipo equipo2 = null;
         Equipo equipo3 = null;
+        
+        Partido partido1 = null;
+        Partido partido2 = null;
+        Partido partido3 = null;
+        
       //declaracion de variables
         
         do {
@@ -43,14 +52,31 @@ public class ProgramaPrincipal {
                 	//comprobamos si la lista de equipos esta vacia, si no lo esta iteramos sobre ella
                 	if(listaEquipos.isEmpty()) {
                 		System.out.println("Error la lista de equipos esta vacia, pulsa 4 para cargar datos");
+                		break;
                 	}
                 	for (Equipo equipo : listaEquipos) {
                         System.out.println(equipo);
                     }
                     break;
                 case 2:
+                	//comprobamos si la lista de equipos esta vacia, si no lo esta iteramos sobre ella
+                	if(listaPartidos.isEmpty()) {
+                		System.out.println("Error la lista de partidos esta vacia, pulsa 4 para cargar datos");
+                		break;
+                	}
+                	for (Partido partido : listaPartidos) {
+                        System.out.println(partido);
+                    }
                     break;
                 case 3:
+                	//comprobamos si la lista de equipos esta vacia, si no lo esta iteramos sobre ella
+                	if(listaEquipos.isEmpty()) {
+                		System.out.println("Error la lista de equipos esta vacia, pulsa 4 para cargar datos");
+                		break;
+                	}
+                	for (Equipo equipo : listaEquipos) {
+                        System.out.println("Equipo: " + equipo.getNombre() + "Partidos ganados: " + equipo.getPartidosGanados());
+                    }
                     break;
                 case 4:
                 	//Datos Equipo1
@@ -62,7 +88,7 @@ public class ProgramaPrincipal {
                     listaJugadores1.add(jugador2);
                     listaJugadores1.add(jugador3);
                     Collections.sort(listaJugadores1, Comparator.comparingInt(Jugador::getGolesMarcados).reversed());                   
-                	equipo1 = new Equipo(nombreEquipo1,listaJugadores1 );
+                	equipo1 = new Equipo(nombreEquipo1,listaJugadores1, 7 );
                 	
                 	//Datos equipo2
                 	String nombreEquipo2 = "Liverpool";
@@ -73,7 +99,7 @@ public class ProgramaPrincipal {
                     listaJugadores2.add(jugador5);
                     listaJugadores2.add(jugador6);
                     Collections.sort(listaJugadores2, Comparator.comparingInt(Jugador::getGolesMarcados).reversed());                   
-                    equipo2 = new Equipo(nombreEquipo2,listaJugadores2 );
+                    equipo2 = new Equipo(nombreEquipo2,listaJugadores2, 15 );
                     
                     
                     //Datos equipo3
@@ -85,13 +111,29 @@ public class ProgramaPrincipal {
                     listaJugadores3.add(jugador8);
                     listaJugadores3.add(jugador9);
                     Collections.sort(listaJugadores3, Comparator.comparingInt(Jugador::getGolesMarcados).reversed());                   
-                    equipo3 = new Equipo(nombreEquipo3,listaJugadores3);
+                    equipo3 = new Equipo(nombreEquipo3,listaJugadores3, 3);
                     
                     
                     //añadimos para iterar después
                     listaEquipos.add(equipo1);
                     listaEquipos.add(equipo2);
                     listaEquipos.add(equipo3);
+                    
+                    
+                    //datos para el case2
+                    partido1 = new Partido(equipo1, equipo2, "0 - 1");
+                    partido2 = new Partido(equipo3, equipo1, "4 - 2");
+                    partido3 = new Partido(equipo2, equipo3, "2 - 3");
+                    
+                    listaPartidos.add(partido1);
+                    listaPartidos.add(partido2);
+                    listaPartidos.add(partido3);
+                    
+                    
+                    
+                    //ordenamos para el case3
+                    Collections.sort(listaEquipos, Comparator.comparingInt(Equipo::getPartidosGanados).reversed());                   
+
                 	
                     break;
                 case 0:
