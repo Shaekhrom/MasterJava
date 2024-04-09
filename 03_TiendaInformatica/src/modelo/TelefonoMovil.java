@@ -1,5 +1,5 @@
 package modelo;
 
-public class TelefonoMovil {
+public class TelefonoMovil extends Producto {
 	private String operador;
 }
