@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Libro {
 	//atributos
 	private String isbn;
@@ -50,6 +52,20 @@ public class Libro {
 		return "El libro con ISBN (" + isbn + ") creado por el autor '" + autor + "' tiene " + numPaginas + " paginas";
 	}
 	
-	
+	//comparador
+	public static String comparadorPaginas(ArrayList<Libro> libros) {
+		Libro libroConMasPaginas = null;
+		int paginasMasAltas = 0;
+		
+		for (Libro libro : libros) {
+            if (libro.getNumPaginas() > paginasMasAltas) {
+                paginasMasAltas = libro.getNumPaginas();
+                libroConMasPaginas = libro;
+            }else {
+            	return "Hay dos o mas libros iguales";
+            }
+        }
+		return "El libro '" + libroConMasPaginas.getTitulo() + "' es el que mas paginas tiene";
+	}
 	
 }

@@ -8,12 +8,14 @@ public class Main {
 	//Creado por Alejandro Barbacil
 
 	public static void main(String[] args) {
+		Libro libroConMasPaginas = null;
+    	int paginasMasAltas = 0;
 		
 		//Libro 1
 		String isbn = "23v49c23j3";
 		String titulo = "La pasion de java";
 		String autor = "El prohibidisimo";
-		int numPaginas = 2345;
+		int numPaginas = 1;
 
 		Libro libro1 = new Libro(isbn, titulo, autor, numPaginas);
 		
@@ -21,7 +23,7 @@ public class Main {
 		 isbn = "adlkawnd2f3";
 		 titulo = "Me encanta ViewNext";
 		 autor = "Alejandro el Javero";
-		 numPaginas = 369;
+		 numPaginas = 2;
 
 		Libro libro2 = new Libro(isbn, titulo, autor, numPaginas);
 		
@@ -33,19 +35,14 @@ public class Main {
 		System.out.println("---Lista de libros---");
     	for (Libro libro : libros) {
             System.out.println(libro);
-        }
-    	
-    	//mostrar libro con mas paginas
-    	Libro libroConMasPaginas = null;
-    	int paginasMasAltas = 0;
-    	
-    	for (Libro libro : libros) {
             if (libro.getNumPaginas() > paginasMasAltas) {
                 paginasMasAltas = libro.getNumPaginas();
                 libroConMasPaginas = libro;
             }
         }
-    	System.out.println("El libro '" + libroConMasPaginas.getTitulo() + "' es el que mas páginas tiene");
+    	
+    	//mostrar libro con mas paginas
+    	System.out.println(Libro.comparadorPaginas(libros));
 
 	}
 
