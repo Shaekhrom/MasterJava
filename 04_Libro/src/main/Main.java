@@ -44,6 +44,8 @@ public class Main {
     	//mostrar libro con mas paginas
     	System.out.println(Libro.comparadorPaginas(libros));
 
+    	//mostrar numero de libros
+    	System.out.println("Numero de libros: " + Libro.numLibros);
 	}
 
 }

@@ -9,6 +9,8 @@ public class Libro {
 	private String autor;
 	private int numPaginas;
 	
+	//variable global para contar numero de libros
+	public static int numLibros;
 	
 	//constructor
 	public Libro(String isbn, String titulo, String autor, int numPaginas) {
@@ -17,6 +19,7 @@ public class Libro {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.numPaginas = numPaginas;
+		numLibros++;
 	}
 	
 	
