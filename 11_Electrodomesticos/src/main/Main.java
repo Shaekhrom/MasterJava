@@ -7,7 +7,7 @@ import modelo.Television;
 public class Main {
     public static void main(String[] args) {
         // creamos el array
-        Electrodomestico[] electrodomesticos = new Electrodomestico[8];
+        Electrodomestico[] electrodomesticos = new Electrodomestico[10];
 
         //creamos 8 objetos y los metemos al arraylist
         electrodomesticos[0] = new Television(264, true, 300, "negro", 'A', 15); 
@@ -18,6 +18,8 @@ public class Main {
         electrodomesticos[5] = new Lavadora(8563, 643, "negro", 'F', 40); 
         electrodomesticos[6] = new Television(23516, false, 6020, "rojo", 'A', 50); 
         electrodomesticos[7] = new Lavadora(23425, 55); 
+        electrodomesticos[8] = new Lavadora(8563, 643, "negro", 'F', 40);
+        electrodomesticos[9] = new Lavadora(235, 914, "blanco", 'B', 40);
 
         // ponemos precios iniciales
         double precioTotalElectrodomesticos = 0;
