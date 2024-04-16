@@ -1,13 +1,14 @@
 package com.viewnext.modelo;
+
+import com.viewnext.interfaces.Conducible;
+
 /**
  * @author Alejandro Barbacil
  * Esta clase representa un tipo de vehiculo, un coche.
  * Extiende de la clase abstracta vehiculo e implementa los atributos
  * color y matricula.
  */
-public class Coche extends Vehiculo{
-
-	//atributos
+public class Coche extends Vehiculo implements Conducible{
 	
 	//constantes
 	private final int numRuedas;
@@ -28,6 +29,12 @@ public class Coche extends Vehiculo{
 		return "Coche [id= " + getId() +" color=" + getColor() + ", matricula=" + getMatricula() + ", numRuedas=" + numRuedas + ", Modelo="
 				+ getModelo() + ", Marca=" + getMarca() + ", Caballos de potencia=" + getCaballosDePotencia()
 				+ "]";
+	}
+	
+	//metodo
+	@Override
+	public String conducir() {
+		return "Manejando un coche";
 	}
 	
 	

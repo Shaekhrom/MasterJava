@@ -57,7 +57,8 @@ public class Main {
             System.out.println("1. Arrancar");
             System.out.println("2. Avanzar");
             System.out.println("3. Parar");
-            System.out.println("4. Listar y seleccionar vehiculo");
+            System.out.println("4. Conducir");
+            System.out.println("5. Listar y seleccionar vehiculo");
             System.out.println("0. Salir del programa");
             System.out.println("");
             opcion = Teclado.leerEntero("Selecciona una opcion: ");
@@ -67,7 +68,7 @@ public class Main {
                 	try {
                 	System.out.println(vehiculoActual.arrancar());
                 	}catch(Exception e) {
-                		System.out.println("Error, elige un vehiculo antes en la opcion 4");
+                		System.out.println("Error, elige un vehiculo antes en la opcion 5");
                 	}
                     break;
                 case 2:
@@ -75,17 +76,24 @@ public class Main {
                 		metrosAAvanzar = Teclado.leerEntero("Metros a avanzar?");
                     	System.out.println(vehiculoActual.avanzar(metrosAAvanzar));
                     	}catch(Exception e) {
-                    		System.out.println("Error, elige un vehiculo antes en la opcion 4");
+                    		System.out.println("Error, elige un vehiculo antes en la opcion 5");
                     	}
                     break;
                 case 3:
                 	try {
                 	System.out.println(vehiculoActual.parar());
                 	}catch(Exception e) {
-                		System.out.println("Error, elige un vehiculo antes en la opcion 4");
+                		System.out.println("Error, elige un vehiculo antes en la opcion 5");
                 	}
                     break;
                 case 4:
+                	try{
+                	System.out.println(vehiculoActual.conducir());
+		        	}catch(Exception e) {
+		        		System.out.println("Error, elige un vehiculo antes en la opcion 5");
+		        	}
+                	break;
+                case 5:
                     boolean vehiculoEncontrado = false;
                     for (Vehiculo vehiculo : listaVehiculos) {
                         System.out.println(vehiculo.toString());

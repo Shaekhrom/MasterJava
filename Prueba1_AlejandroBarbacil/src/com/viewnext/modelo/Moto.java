@@ -1,4 +1,7 @@
 package com.viewnext.modelo;
+
+import com.viewnext.interfaces.Conducible;
+
 /**
  * @author Alejandro Barbacil Castro
  * Clase que extiende de Vehiculo y tiene su atributo propio "tipo de motor", este esta basado
@@ -6,7 +9,7 @@ package com.viewnext.modelo;
  * y no que el usuario pueda poner lo que quiera. Ademas el numero de ruedas esta como
  * final a 2 ya que es una moto.
  */
-public class Moto extends Vehiculo {
+public class Moto extends Vehiculo implements Conducible {
 
 	//atributo
 	private TipoMotorMoto tipoMotor;
@@ -45,7 +48,11 @@ public class Moto extends Vehiculo {
 	}
 	
 	
-	
+	//metodo
+		@Override
+		public String conducir() {
+			return "Llevando una moto";
+		}
 	
 
 	

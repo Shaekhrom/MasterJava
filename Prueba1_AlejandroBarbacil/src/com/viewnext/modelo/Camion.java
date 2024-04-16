@@ -3,6 +3,8 @@ package com.viewnext.modelo;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.viewnext.interfaces.Conducible;
 /**
  * @author Alejandro Barbacil Castro
  * 
@@ -10,7 +12,7 @@ import java.util.List;
  * un atributo arraylist que va guardando todas las velocidades segun
  * se va llamando a la funcion avanzar
  */
-public class Camion extends Vehiculo {
+public class Camion extends Vehiculo implements Conducible {
 	
 	//constante
 	private final int numRuedas;
@@ -38,7 +40,12 @@ public class Camion extends Vehiculo {
 		this.tacometro = tacometro;
 	}
 
-	//metodo especial
+	//metodos
+	
+	@Override
+	public String conducir() {
+		return "Conduciendo un camion";
+	}
 	
 	/**
 	 * Metodo modificado de avanzar para implementar la funcion del tacometro

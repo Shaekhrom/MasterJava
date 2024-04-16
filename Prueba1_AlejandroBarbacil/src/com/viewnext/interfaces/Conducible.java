@@ -12,4 +12,6 @@ public interface Conducible {
 	String avanzar(int numMetrosAvanzados);
 	
 	String parar();
+	
+	String conducir();
 }
