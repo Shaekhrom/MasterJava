@@ -1,21 +1,19 @@
 package modelo;
 
 public class Electrodomestico {
-	
-    // atributos
-    private double precioBase;
-    private String color;
-    private char consumoEnergetico;
-    private double peso;
-
-    // constantes
     private static final String[] COLORES_DISPONIBLES = {"blanco", "negro", "rojo", "azul", "gris"};
     private static final char CONSUMO_ENERGETICO_POR_DEFECTO = 'F';
     private static final String COLOR_POR_DEFECTO = "blanco";
     private static final double PRECIO_BASE_POR_DEFECTO = 100;
     private static final double PESO_POR_DEFECTO = 5;
+    
+    
+    private double precioBase;
+    private String color;
+    private char consumoEnergetico;
+    private double peso;
 
-    // constructores
+    
     public Electrodomestico() {
         this.precioBase = PRECIO_BASE_POR_DEFECTO;
         this.color = COLOR_POR_DEFECTO;
@@ -35,7 +33,8 @@ public class Electrodomestico {
         comprobarConsumoEnergetico(consumoEnergetico);
     }
 
-    // metodos
+    
+    
     public double getPrecioBase() {
         return precioBase;
     }

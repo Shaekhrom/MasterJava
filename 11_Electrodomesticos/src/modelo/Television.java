@@ -1,13 +1,15 @@
 package modelo;
 
 public class Television extends Electrodomestico {
-    // atributos
+	
+	private static final int RESOLUCION_POR_DEFECTO = 20;
+    private static final boolean SINTONIZADOR_TDT_POR_DEFECTO = false;
     private int resolucion; 
     private boolean sintonizadorTDT;
-    private static final int RESOLUCION_POR_DEFECTO = 20;
-    private static final boolean SINTONIZADOR_TDT_POR_DEFECTO = false;
+    
 
-    // constructores
+    
+    
     public Television() {
         super();
         this.resolucion = RESOLUCION_POR_DEFECTO;

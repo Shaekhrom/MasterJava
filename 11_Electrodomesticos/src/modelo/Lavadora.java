@@ -2,11 +2,15 @@ package modelo;
 
 public class Lavadora extends Electrodomestico {
 	
-    // atributos
+	private static final double CARGA_POR_DEFECTO = 5;
+	
+	
+	
     private double carga;
-    private static final double CARGA_POR_DEFECTO = 5;
+    
 
-    // constructores
+    
+    
     public Lavadora() {
         super();
         this.carga = CARGA_POR_DEFECTO;
@@ -22,7 +26,9 @@ public class Lavadora extends Electrodomestico {
         this.carga = carga;
     }
 
-    // metodos
+    
+    
+    
     public double getCarga() {
         return carga;
     }

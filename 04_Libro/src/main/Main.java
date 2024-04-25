@@ -32,6 +32,9 @@ public class Main {
 		libros.add(libro1);
 		libros.add(libro2);
 		
+		
+		
+		
 		System.out.println("---Lista de libros---");
     	for (Libro libro : libros) {
             System.out.println(libro);
