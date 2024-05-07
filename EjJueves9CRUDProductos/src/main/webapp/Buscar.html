@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta de Productos por Sector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type="submit"], .boton {
+            width: 40%;
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover, .boton:hover {
+            background-color: #45a049;
+        }
+        .boton {
+            background-color: #f44336;
+        }
+        .boton:hover {
+            background-color: #da190b;
+        }
+        .volver {
+            width: 40%;
+            padding: 10px;
+            border: none;
+            background-color: #f44336;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        .volver:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <h2>Consulta de Productos por Sector</h2>
+    <form action="ServletMostrarProductosPorSector" method="get">
+        <label for="sector">Sector:</label>
+        <input type="text" id="sector" name="sector" required>
+        <button type="submit">Consultar</button>
+    </form>
+    <button class="volver" onclick="window.location.href='index.html'">Volver</button>
+</body>
+</html>

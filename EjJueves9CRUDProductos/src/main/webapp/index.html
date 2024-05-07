@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pagina Principal</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 40px;
+    }
+
+    .boton {
+        display: inline-block;
+        width: 400px;
+        height: 100px;
+        line-height: 50px;
+        margin: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        vertical-align: middle; 
+    }
+
+    .boton:hover {
+        background-color: #45a049;
+        transform: scale(1.1);
+    }
+
+    .fila-botones {
+        margin-bottom: 40px;
+        vertical-align: middle; 
+    }
+</style>
+</head>
+<body>
+
+<h1>Gestor de productos (Alejandro Barbacil)</h1>
+
+<div class="fila-botones">
+    <button class="boton" onclick="window.location.href='Alta.html'">Dar de alta un producto</button>
+    <button class="boton" onclick="window.location.href='Buscar.html'">Buscar productos de una seccion</button>
+</div>
+
+<div class="fila-botones">
+    <button class="boton" onclick="window.location.href='Eliminar.html'">Eliminar un producto por nombre</button>
+    <button class="boton" onclick="window.location.href='Modificar.html'">Modificar un producto por nombre</button>
+</div>
+
+</body>
+</html>
