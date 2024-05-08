@@ -22,18 +22,31 @@ public class ServletMostrarProductosPorSector extends HttpServlet {
 
         TiendaService tiendaService = new TiendaService();
         List<Producto> productosPorSector = tiendaService.listaProductosPorSeccion(sector);
-
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><head><title>Productos por Sector</title></head><body>");
-        out.println("<h2>Productos del sector: " + sector + "</h2>");
-        out.println("<ul>");
-        for (Producto producto : productosPorSector) {
-            out.println("<li>" + "Nombre: " + producto.getNombre() + "  || Precio: " + producto.getPrecio()+ "  || Stock: " + producto.getStock() + "</li>");
+        
+        if (productosPorSector.isEmpty()) {
+        	response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Error, sector no encontrado</title></head><body>");
+            out.println("<h1>Error sector no encontrado</h1>");
+            out.println("<button class=\"boton\" onclick=\"window.location.href='Buscar.html'\">Volver</button>");
+            out.println("</body></html>");
+        }else {
+        	response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Productos por Sector</title></head><body>");
+            out.println("<h2>Productos del sector: " + sector + "</h2>");
+            out.println("<ul>");
+            for (Producto producto : productosPorSector) {
+                out.println("<li>" + "Nombre: " + producto.getNombre() + "  || Precio: " + producto.getPrecio()+ "  || Stock: " + producto.getStock() + "</li>");
+            }
+            out.println("</ul>");
+            out.println("<button class=\"boton\" onclick=\"window.location.href='Buscar.html'\">Volver</button>");
+            out.println("</body></html>");
         }
-        out.println("</ul>");
-        out.println("<button class=\"boton\" onclick=\"window.location.href='Buscar.html'\">Volver</button>");
-        out.println("</body></html>");
+        
+        
+        
+        
     }
 
 }

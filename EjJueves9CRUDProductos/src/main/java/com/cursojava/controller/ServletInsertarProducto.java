@@ -21,11 +21,22 @@ public class ServletInsertarProducto extends HttpServlet {
 			throws ServletException, IOException {
 
 		String nombre = request.getParameter("nombre");
-		String sector = request.getParameter("sector");
-		double precio = Double.parseDouble(request.getParameter("precio"));
-		int stock = Integer.parseInt(request.getParameter("stock"));
+	    String sector = request.getParameter("sector");
+	    String precioStr = request.getParameter("precio");
+	    String stockStr = request.getParameter("stock");
+		
+		if (nombre.isEmpty() || sector.isEmpty() || precioStr.isEmpty() || stockStr.isEmpty()) {
+	        response.sendRedirect("error.html");
+	        return;
+	    }
+		
+		double precio = 0.0;
+	    if (!precioStr.isEmpty()) {
+	        precio = Double.parseDouble(precioStr);
+	    }
+	    int stock = Integer.parseInt(stockStr);
 
-		Producto nuevoProducto = new Producto(nombre, sector, precio, stock);
+	    Producto nuevoProducto = new Producto(nombre, sector, precio, stock);
 
 		TiendaService tiendaService = new TiendaService();
 		tiendaService.agregarProducto(nuevoProducto);
