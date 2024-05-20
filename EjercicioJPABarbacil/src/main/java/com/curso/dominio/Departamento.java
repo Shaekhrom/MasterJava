@@ -1,8 +1,11 @@
 package com.curso.dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,8 +26,8 @@ public class Departamento implements Serializable {
     private String nombre;
     private String localidad;
     
-    @OneToMany(mappedBy = "departamento")
-    private List<Empleado> empleados;
+    @OneToMany(mappedBy = "departamento", cascade=CascadeType.ALL)
+    private List<Empleado> empleados = new ArrayList<Empleado>();
 
 
     // Constructor por defecto
@@ -36,7 +39,15 @@ public class Departamento implements Serializable {
         this.localidad = localidad;
     }
 
-    // Getters y setters
+    
+    public Departamento(int id_dept, String nombre, String localidad) {
+		super();
+		this.id_dept = id_dept;
+		this.nombre = nombre;
+		this.localidad = localidad;
+	}
+
+	// Getters y setters
     public int getIdDept() {
         return id_dept;
     }
@@ -60,5 +71,56 @@ public class Departamento implements Serializable {
     public void setLocalidad(String localidad) {
         this.localidad = localidad;
     }
+
+	public int getId_dept() {
+		return id_dept;
+	}
+
+	public void setId_dept(int id_dept) {
+		this.id_dept = id_dept;
+	}
+
+	public List<Empleado> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id_dept);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Departamento other = (Departamento) obj;
+		if (empleados == null) {
+			if (other.empleados != null)
+				return false;
+		} else if (!empleados.equals(other.empleados))
+			return false;
+		if (id_dept != other.id_dept)
+			return false;
+		if (localidad == null) {
+			if (other.localidad != null)
+				return false;
+		} else if (!localidad.equals(other.localidad))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
+	}
+    
 }
 
