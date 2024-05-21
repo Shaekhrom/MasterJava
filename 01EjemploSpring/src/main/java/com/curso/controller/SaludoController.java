@@ -44,7 +44,7 @@ public class SaludoController {
     //Get, localhost:8080/infocliente
     @GetMapping(value="infocliente", produces=MediaType.APPLICATION_JSON_VALUE)
     public Info informacion() {
-        return new Info("jaimito", 22, "tusmuertos@gmail.com");
+        return new Info("jaimito", 22, "bizcochito@gmail.com");
     }
     
     /*CURSOS
@@ -66,9 +66,14 @@ public class SaludoController {
     //con direccion http://localhost:8080/cursos/x
     @GetMapping(value="cursos/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Curso> obtenerCursoPorId(@PathVariable("id") Long id) {
-        Optional<Curso> curso = cursos.stream().filter(c -> c.getId().equals(id)).findFirst();
-        return curso.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        for (Curso curso : cursos) {
+            if (curso.getId().equals(id)) {
+                return ResponseEntity.ok(curso);
+            }
+        }
+        return ResponseEntity.notFound().build();
     }
+
 
     // Crear un nuevo curso, en postman, en POST ->body -> raw
     //con direccion http://localhost:8080/cursos
@@ -91,9 +96,15 @@ public class SaludoController {
     //con direccion http://localhost:8080/cursos/x
     @DeleteMapping(value="cursos/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> eliminarCurso(@PathVariable("id") Long id) {
-        boolean removed = cursos.removeIf(c -> c.getId().equals(id));
-        return removed ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        for (Curso curso : cursos) {
+            if (curso.getId().equals(id)) {
+                cursos.remove(curso);
+                return ResponseEntity.noContent().build();
+            }
+        }
+        return ResponseEntity.notFound().build();
     }
+
 
     // Actualizar un curso por ID, en postman, en PUT ->body -> raw
     //con direccion http://localhost:8080/cursos/x
@@ -106,14 +117,13 @@ public class SaludoController {
     
     @PutMapping(value="cursos/{id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Curso> actualizarCurso(@PathVariable("id") Long id, @RequestBody Curso cursoActualizado) {
-        Optional<Curso> cursoOpt = cursos.stream().filter(c -> c.getId().equals(id)).findFirst();
-        if (cursoOpt.isPresent()) {
-            Curso curso = cursoOpt.get();
-            curso.setNombre(cursoActualizado.getNombre());
-            curso.setDescripcion(cursoActualizado.getDescripcion());
-            return ResponseEntity.ok(curso);
-        } else {
-            return ResponseEntity.notFound().build();
+        for (Curso curso : cursos) {
+            if (curso.getId().equals(id)) {
+                curso.setNombre(cursoActualizado.getNombre());
+                curso.setDescripcion(cursoActualizado.getDescripcion());
+                return ResponseEntity.ok(curso);
+            }
         }
+        return ResponseEntity.notFound().build();
     }
 }
