@@ -1,0 +1,5 @@
+
+Comportamiento de carga de las relaciones
+Lazy fetching (Carga perezosa)
+
+Eager fetching (Carga ansiosa)

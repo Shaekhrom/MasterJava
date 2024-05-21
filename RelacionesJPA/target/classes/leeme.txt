@@ -1,0 +1,10 @@
+1-Crear proyecto maven
+
+2-Incorporar dependencias
+	2.1-Dependencia 
+	2.2-Dependencia
+	
+3-Crear META-INF en src/main/resources
+
+4-Crear persistence.xml en la carpeta anterior
+
