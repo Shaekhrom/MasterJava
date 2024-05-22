@@ -1,15 +1,15 @@
 package com.curso.model;
 
-public class Libro {
+public class Vehiculo {
 	private int isbn;
 	private String titulo;
 	private String tematica;
 	
-	public Libro() {
+	public Vehiculo() {
 		super();
 	}
 	
-	public Libro(int isbn, String titulo, String tematica) {
+	public Vehiculo(int isbn, String titulo, String tematica) {
 		super();
 		this.isbn = isbn;
 		this.titulo = titulo;
