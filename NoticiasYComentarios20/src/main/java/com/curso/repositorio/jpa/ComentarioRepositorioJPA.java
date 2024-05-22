@@ -7,23 +7,31 @@ import com.curso.repositorio.ComentarioRepositorio;
 import jakarta.persistence.EntityManager;
 
 public class ComentarioRepositorioJPA implements ComentarioRepositorio {
-	private EntityManager entityManager;
+	private EntityManager em;
+	
+	public void setEntityManager(EntityManager em) {
+        this.em = em;
+    }
+
+    public EntityManager getEntityManager() {
+        return em;
+    }
 
 	public Comentario findOne(int numero) {
-		return entityManager.find(Comentario.class, numero);
+		return em.find(Comentario.class, numero);
 	}
 
 	public Iterable<Comentario> findAll() {
-		return entityManager.createQuery("SELECT c FROM Comentario c", Comentario.class).getResultList();
+		return em.createQuery("SELECT c FROM Comentario c", Comentario.class).getResultList();
 	}
 
 	public void save(Comentario comentario) {
-		entityManager.persist(comentario);
+		em.persist(comentario);
 
 	}
 
 	public void delete(Comentario comentario) {
-		entityManager.remove(comentario);
+		em.remove(comentario);
 
 	}
 

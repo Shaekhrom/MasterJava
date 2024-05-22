@@ -1,9 +1,16 @@
 package com.curso.inicio;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication(scanBasePackages="com.curso.controller")
+//Para springboot(sustituye las 3 de abajo):
+//@SpringBootApplication(scanBasePackages="com.curso.controller")
+//Estas 3 de abajo son para Spring normal
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan(basePackages="com.curso.controller")
 public class Application {
 
 	public static void main(String[] args) {
