@@ -1,0 +1,34 @@
+Recurso: libro
+
+Vamos a exponer un CRUD de libro
+
+GET---> recuperar
+
+POST--->  insertar
+
+PUT--->  actualizar
+
+DELETE--->  eliminar
+
+htttp://localhost:8080/libros			GET: expone todos los libros
+htttp://localhost:8080/libros/{isbn}	GET: recupera libro por isbn 
+htttp://localhost:8080/libros			POST: dar de alta un libro
+htttp://localhost:8080/libros			PUT: actualizar libro
+htttp://localhost:8080/libros/{isbn}	DELETE: borrar libro por isbn
+
+
+
+Orden de creacion:
+1-Crear el proyecto
+2-Definir modelo de datos (com.curso.model)
+3-Crear capa DAO (com.curso.dao)
+	Crear interface que extends de JpaRepository<T, ID>
+	donde T--> tipo de entidad
+	y     ID->tipo de la primary key
+	Si se necesitan mas metodos que los que estan en JpaRepository se incorporan aqui
+	@Query(" ")
+	tipoDevuelve metodo(tipoArg arg)
+	
+4-Capa de la logica de negocio, capa de servicio (com.curso.service)
+	4.1-Crear la interface
+	4.2-Crear clase que implemente esa interface (no olvidar 
