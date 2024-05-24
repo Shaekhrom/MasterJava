@@ -8,21 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 @Entity
-@NamedQueries({
-    @NamedQuery(
-        name = "Bizcocho.countTotal",
-        query = "SELECT COUNT(b) FROM Bizcocho b"
-    ),
-    @NamedQuery(
-        name = "Bizcocho.countVeganos",
-        query = "SELECT COUNT(b) FROM Bizcocho b WHERE b.esVegano = true"
-    ),
-    @NamedQuery(
-        name = "Bizcocho.countByRepostero",
-        query = "SELECT COUNT(b) FROM Bizcocho b WHERE b.idRepostero = :idRepostero"
-    )
-})
+@Table(name = "bizcocho")
 public class Bizcocho {
 
     @Id

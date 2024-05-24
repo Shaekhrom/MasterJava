@@ -6,19 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 @Entity
-@NamedQueries({
-    @NamedQuery(
-        name = "Repostero.countByAgeBetween20And30",
-        query = "SELECT COUNT(r) FROM Repostero r WHERE r.edad BETWEEN 20 AND 30"
-    ),
-    @NamedQuery(
-        name = "Repostero.findAverageSalary",
-        query = "SELECT AVG(r.salario) FROM Repostero r"
-    )
-})
+@Table(name = "repostero")
 public class Repostero {
 
     @Id
@@ -42,9 +32,20 @@ public class Repostero {
 		this.edad = edad;
 		this.salario = salario;
 	}
+	
+	
 
 
-    public int getIdEmpleado() {
+    public Repostero(int idEmpleado, String nombre, int edad, double salario) {
+		super();
+		this.idEmpleado = idEmpleado;
+		this.nombre = nombre;
+		this.edad = edad;
+		this.salario = salario;
+	}
+
+
+	public int getIdEmpleado() {
         return idEmpleado;
     }
 
