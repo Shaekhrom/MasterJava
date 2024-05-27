@@ -1,0 +1,17 @@
+1-Crear proyecto y poner dependencias
+
+2-Definir el modelo
+
+3-trabajar con la capa servicio
+	3.1- Crear la interfaz
+	3.2- Crear la clase que implemente la interfaz
+	
+4-Implementar el controlador
+
+5-Configuraciones
+	5.1 Indicar los paquetes a escanear
+	5.2 Crear @Bean del RestTemplate
+	5.3 Asignar un numero de puerto valido y que este libre en properties, server.port=9090
+	
+6-Probar en postman
+	En mi caso http://localhost:9090/ejemplar/345/titulo345/tematica345
