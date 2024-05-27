@@ -36,9 +36,15 @@ public class Bizcocho {
 		this.esVegano = esVegano;
 		this.precioBizcocho = precioBizcocho;
 	}
+	
+	
+    public Bizcocho(int idBizcocho) {
+		super();
+		this.idBizcocho = idBizcocho;
+	}
 
 
-    public int getIdBizcocho() {
+	public int getIdBizcocho() {
         return idBizcocho;
     }
 

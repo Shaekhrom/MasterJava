@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.curso.model.Bizcocho;
 import com.curso.model.Repostero;
 import com.curso.dao.BizcochosDao;
 import com.curso.dao.ReposteroDao;
@@ -58,4 +59,27 @@ public class PasteleriaServiceImpl implements PasteleriaService {
     public double averageSalary() {
         return reposteroDao.findAverageSalary();
     }
+
+    //CREATE
+    @Override
+	public void insertarElemento(Bizcocho bizcocho) {
+		bizcochosDao.save(bizcocho);
+	}
+    //READ
+	@Override
+	public List<Bizcocho> mostrarElementos() {
+		return bizcochosDao.findAll();
+	}
+	//UPDATE
+	@Override
+	public void actualizarElemento(Bizcocho bizcocho) {
+		bizcochosDao.save(bizcocho);
+	}
+	
+	//DELETE
+	@Override
+	public List<Bizcocho> borrarElemento(int idBizcocho) {
+		bizcochosDao.deleteById(idBizcocho);
+		return bizcochosDao.findAll();
+	}
 }
