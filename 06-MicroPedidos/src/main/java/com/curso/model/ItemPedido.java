@@ -1,5 +1,7 @@
 package com.curso.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,12 +12,13 @@ import jakarta.persistence.ManyToOne;
 public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; // Cambiar el identificador a un nuevo campo, por ejemplo, 'id'
+    private int id_item_pedido;
     
     private int productoId;
     private int cantidad;
     
     @ManyToOne
+    @JsonIgnore 
     private Pedido pedido;
     
     
@@ -30,11 +33,11 @@ public class ItemPedido {
     }
 
     public int getId() {
-        return id;
+        return id_item_pedido;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_item_pedido = id;
     }
 
     public int getProductoId() {

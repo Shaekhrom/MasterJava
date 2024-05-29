@@ -1,11 +1,14 @@
 package com.curso.controller;
-import org.springframework.beans.factory.annotation.Autowired; 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +17,6 @@ import org.springframework.web.client.RestTemplate;
 import com.curso.model.ItemPedido;
 import com.curso.model.Pedido;
 import com.curso.service.PedidoService;
-
-import java.util.List;
 
 @RestController
 public class PedidosController {
@@ -94,6 +95,12 @@ public class PedidosController {
         if (!response.getStatusCode().is2xxSuccessful()) {
             throw new RuntimeException("Error al actualizar el stock del producto con ID: " + idProducto);
         }
+    }
+    
+    //mostrar todos los pedidos
+    @GetMapping(value="pedidos", produces=MediaType.APPLICATION_JSON_VALUE)
+    public List<Pedido> pedidos(){
+    	return pedidoService.listarPedidos();
     }
 }
 
