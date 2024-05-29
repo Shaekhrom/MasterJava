@@ -44,5 +44,10 @@ public class CursosServiceImpl implements CursosService {
     public List<Curso> buscarPorRangoDePrecio(int precio1, int precio2) {
         return dao.findByPrecioBetween(precio1, precio2);
     }
+	
+	@Override
+    public List<Curso> obtenerTodosLosCursos() {
+        return dao.findAll();
+    }
 
 }

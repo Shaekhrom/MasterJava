@@ -57,8 +57,15 @@ public class CursosController {
 	}
 	//mostrar cursos por rango de precio
 	//ejemplo de uso http://localhost:8080/cursos?precio1=1&precio2=100
-	@GetMapping(value="cursos", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="cursosPorPrecio", produces=MediaType.APPLICATION_JSON_VALUE)
     public List<Curso> buscarPorRangoDePrecio(@RequestParam int precio1, @RequestParam int precio2) {
         return service.buscarPorRangoDePrecio(precio1, precio2);
     }
+	
+	//obtener todos los cursos
+	@GetMapping(value="cursos", produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Curso> obtenerTodosLosCursos() {
+	    return service.obtenerTodosLosCursos();
+	}
+
 }

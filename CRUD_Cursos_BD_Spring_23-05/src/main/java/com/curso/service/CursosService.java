@@ -10,4 +10,5 @@ public interface CursosService {
 	void actualizarDuracion(int codCurso, int horasDuracion);
 	Curso buscarCurso(int codCurso);
 	List<Curso>buscarPorRangoDePrecio(int precio1, int precio2);
+	List<Curso> obtenerTodosLosCursos();
 }
